@@ -878,6 +878,7 @@ a {
 
 .team .container .box {
   position: relative;
+  z-index: 1;
 }
 
 .team .container .box .head {
@@ -909,6 +910,12 @@ a {
   z-index: -2;
 }
 
+@media (max-width:767px) {
+  .team .container .box::before {
+    width: 100%;
+  }
+}
+
 .team .container .box::after {
   background-color: #e4e4e4;
   width: 0;
@@ -919,11 +926,24 @@ a {
   width: calc(100% - 60px);
 }
 
+@media (max-width:767px) {
+  .team .container .box:hover::after {
+    width: 100%;
+  }
+}
+
 .team .container .box .head {
   display: flex;
   justify-content: space-between;
   padding-top: 60px;
 }
+
+@media (max-width:767px) {
+  .team .container .box .head {
+    flex-direction: column;
+  }
+}
+
 
 .team .container .box .head img {
   width: calc(100% - 60px);
@@ -939,6 +959,12 @@ a {
   -o-transition: var(--main-transition);
 }
 
+@media (max-width:767px) {
+  .team .container .box .head img {
+    margin: auto;
+  }
+}
+
 .team .container .box:hover .head img {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
@@ -949,14 +975,29 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  width: 60px;
+  gap: 30px;
+
 }
+
+@media (max-width:767px) {
+  .team .container .box .head .social {
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 0;
+  }
+
+  .team .container .box .head .social a {
+    width: 100%;
+  }
+}
+
 
 .team .container .box .head .social a {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60px;
+  height: 30px;
 }
 
 .team .container .box .head .social a i {
@@ -985,19 +1026,180 @@ a {
 }
 
 .team .container .box .text {
-  padding-left: 100px;
+  padding-left: 80px;
+}
+
+@media (max-width:767px) {
+  .team .container .box .text {
+    text-align: center;
+    padding: 0;
+  }
 }
 
 .team .container .box .text h3 {
   margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: var(--main-color);
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+
+.team .container .box:hover .text h3 {
+  color: #777;
 }
 
 .team .container .box .text p {
   margin-bottom: 20px;
 }
 
-/* Hey there */
 /* End Team */
+/* Start Services */
+.services {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  position: relative;
+  background-color: var(--section-background);
+}
+
+.services .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.services .container .box {
+  background-color: white;
+  counter-increment: services;
+  box-shadow: 0px 0px 10px #ddd;
+  transition: var(--main-transition);
+  position: relative;
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+
+.services .container .box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  height: 3px;
+  width: 0;
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+
+.services .container .box:hover::before {
+  width: 100%;
+}
+
+.services .container .box:hover {
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+}
+
+.services .container .box .head {
+  text-align: center;
+}
+
+.services .container .box .head i {
+  color: #d5d5d5;
+  margin: 30px auto 20px;
+}
+
+.services .container .box .head h3 {
+  color: var(--main-color);
+  font-size: 25px;
+  margin: 20px auto 40px;
+}
+
+.services .container .box .foot {
+  text-align: right;
+  padding: 15px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.services .container .box .foot a {
+  color: var(--main-color);
+
+}
+
+.services .container .box .foot a::before {
+  content: "0" counter(services);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  padding-right: 15px;
+  background-color: var(--main-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.services .container .box .foot a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 80px;
+  width: 50px;
+  height: calc(100% + 0.4px);
+  background-color: #d5d5d5;
+  transform: skewX(-30deg);
+}
+
+/* End Services */
+/* Start Skills */
+/* .skills {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  position: relative;
+  background-color: white;
+}
+
+.skills .container {
+  display: flex;
+  justify-content: space-between;
+} */
+
+/* End Skills */
+/* Start Work */
+.work {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  position: relative;
+  background-color: var(--section-background);
+}
+
+.work .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* End Work */
 
 /* Start Animations */
 @keyframes up-and-down {
