@@ -1073,38 +1073,15 @@ a {
 
 .services .container .box {
   background-color: white;
+  text-align: center;
   counter-increment: services;
+  position: relative;
   box-shadow: 0px 0px 10px #ddd;
   transition: var(--main-transition);
-  position: relative;
   -webkit-transition: var(--main-transition);
   -moz-transition: var(--main-transition);
   -ms-transition: var(--main-transition);
   -o-transition: var(--main-transition);
-}
-
-.services .container .box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  height: 3px;
-  width: 0;
-  background-color: var(--main-color);
-  transition: var(--main-transition);
-  -webkit-transition: var(--main-transition);
-  -moz-transition: var(--main-transition);
-  -ms-transition: var(--main-transition);
-  -o-transition: var(--main-transition);
-}
-
-.services .container .box:hover::before {
-  width: 100%;
 }
 
 .services .container .box:hover {
@@ -1115,89 +1092,96 @@ a {
   -o-transform: translateY(-10px);
 }
 
-.services .container .box .head {
-  text-align: center;
+.services .container .box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  transform: translateX(-50%);
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
 }
 
-.services .container .box .head i {
+.services .container .box:hover::before {
+  width: 100%;
+}
+
+.services .container .box > i {
   color: #d5d5d5;
   margin: 30px auto 20px;
 }
 
-.services .container .box .head h3 {
+.services .container .box > h3 {
   color: var(--main-color);
-  font-size: 25px;
-  margin: 20px auto 40px;
+  margin: 10px auto 20px;
+  font-size: 22px;
 }
 
-.services .container .box .foot {
+.services .container .box .info {
   text-align: right;
   padding: 15px;
   background-color: #f9f9f9;
   position: relative;
 }
 
-.services .container .box .foot a {
+.services .container .box .info a {
+  display: block;
   color: var(--main-color);
-
+  height: 100%;
 }
 
-.services .container .box .foot a::before {
+.services .container .box .info a::before {
   content: "0" counter(services);
-  position: absolute;
-  top: 0;
-  left: 0;
+  color: white;
+  background-color: var(--main-color);
+  padding-right: 15px;
   width: 80px;
   height: 100%;
-  font-size: 30px;
   font-weight: bold;
-  padding-right: 15px;
-  background-color: var(--main-color);
-  color: white;
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
-.services .container .box .foot a::after {
+.services .container .box .info a::after {
   content: "";
+  background-color: #d5d5d5;
   position: absolute;
   top: 0;
   left: 80px;
-  width: 50px;
   height: calc(100% + 0.4px);
-  background-color: #d5d5d5;
+  width: 50px;
   transform: skewX(-30deg);
+  -webkit-transform: skewX(-30deg);
+  -moz-transform: skewX(-30deg);
+  -ms-transform: skewX(-30deg);
+  -o-transform: skewX(-30deg);
 }
 
 /* End Services */
 /* Start Skills */
-/* .skills {
+.skills {
   padding-top: var(--main-padding);
   padding-bottom: var(--main-padding);
   position: relative;
   background-color: white;
 }
 
-.skills .container {
-  display: flex;
-  justify-content: space-between;
-} */
-
 /* End Skills */
-/* Start Work */
-.work {
-  padding-top: var(--main-padding);
-  padding-bottom: var(--main-padding);
-  position: relative;
-  background-color: var(--section-background);
-}
-
-.work .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 /* End Work */
 
