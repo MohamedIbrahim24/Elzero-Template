@@ -80,6 +80,7 @@ a {
 
 .main-heading {
   margin: 0 auto 80px;
+  background-color: white;
   padding: 10px 30px;
   border: 2px solid black;
   width: fit-content;
@@ -93,6 +94,14 @@ a {
   -moz-transition: var(--main-transition);
   -ms-transition: var(--main-transition);
   -o-transition: var(--main-transition);
+}
+
+.gallery .main-heading,
+.testimonials .main-heading,
+.services .main-heading,
+.work .main-heading,
+.pricing .main-heading {
+  background-color: var(--section-background);
 }
 
 @media (max-width: 767px) {
@@ -160,6 +169,58 @@ a {
 .main-heading:hover::after {
   animation: right-move 0.5s linear forwards;
   -webkit-animation: right-move 0.5s linear forwards;
+}
+
+.spikes {
+  position: relative;
+}
+
+.spikes::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-image: linear-gradient(135deg, white 25%, transparent 25%), linear-gradient(225deg, white 25%, transparent 25%);
+  z-index: 1;
+  background-size: 30px 30px;
+}
+
+.dots {
+  background-image: url(../imgs/dots.png);
+  position: absolute;
+  z-index: -1;
+  width: 206px;
+  height: 186px;
+  background-repeat: no-repeat;
+}
+
+
+.dots-up {
+  right: 0;
+  top: 100px;
+}
+
+.dots-down {
+  left: 0;
+  bottom: 100px;
+}
+
+@media (max-width:767px) {
+  .dots {
+    width: 103px;
+    height: 100px;
+  }
+
+  .dots-up {
+    right: 0;
+    top: 175px;
+  }
+
+  .dots-down {
+    left: 0;
+    bottom: 45px;
+  }
 }
 
 /* End Global Rules */
@@ -1334,6 +1395,7 @@ a {
   padding-bottom: var(--main-padding);
   background-color: white;
   position: relative;
+  z-index: 1;
 }
 
 .events .container {
@@ -1366,6 +1428,7 @@ a {
 
 .events .info .time .unit {
   width: 75px;
+  background-color: white;
   border: 1px solid #d4d4d4;
   text-align: center;
   border-radius: 6px;
@@ -1527,6 +1590,10 @@ a {
   padding-bottom: var(--main-padding);
   background-color: var(--section-background);
   position: relative;
+}
+
+.pricing .dots {
+  z-index: 0;
 }
 
 .pricing .container {
